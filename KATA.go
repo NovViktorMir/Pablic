@@ -12,7 +12,12 @@ func main() {
 	fmt.Scanln(&input)
 
 	result := calculate(input)
-	fmt.Println("Результат равен:", result)
+	fmt.Println("Результат равен:", result) //          Немогу сформулировать логигу выполнения ответа того или инного типа. if  esle <=0,  Идёт работа над кейсом Ответ.
+
+	num := result
+	roman := decimalToRomanIterative(num)
+	fmt.Printf("Римскими результат равен: %s\n", roman)
+
 }
 
 func calculate(input string) int {
@@ -34,19 +39,19 @@ func calculate(input string) int {
 		return 0
 	}
 
-	var result int
+	var Ровно int
 	switch operator {
 	case "+":
-		result = num1 + num2
+		Ровно = num1 + num2
 	case "-":
-		result = num1 - num2
+		Ровно = num1 - num2
 	case "*":
-		result = num1 * num2
+		Ровно = num1 * num2
 	case "/":
-		result = num1 / num2
+		Ровно = num1 / num2
 	}
 
-	return result
+	return Ровно
 }
 
 func convertToNumber(str string) (int, bool) {
@@ -55,20 +60,42 @@ func convertToNumber(str string) (int, bool) {
 	_, err := strconv.Atoi(str)
 	if err == nil {
 		num, _ := strconv.Atoi(str)
+
 		return num, false
 	}
 
-	num := 0
-	for len(str) > 0 {
+	num := 0           // возникновение проблем с интеграцией паники через convertToNumber.. что то делаю не так, было решенно пропустить ответ через
+	for len(str) > 0 { //decimalToRomanIterative
 		for key, value := range ARARIM {
 			if strings.HasPrefix(str, key) {
 				num += value
 				str = str[len(key):]
+
 			}
 		}
 	}
 
-	
-
 	return num, true
+
 }
+
+var romanMap = []struct {
+	decVal int
+	symbol string
+}{
+	{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
+	{100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+	{10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"},
+}
+
+func decimalToRomanIterative(num int) string {
+	result := ""
+	for _, pair := range romanMap {
+		for num >= pair.decVal {
+			result += pair.symbol
+			num -= pair.decVal
+		} //if num <0 {panic("Ответ не коректен")} Вновь непойму. Углубляюсь в Условные конструкции нехватает знаний
+	}
+	return result
+}
+
