@@ -12,12 +12,16 @@ func main() {
 	fmt.Scanln(&input)
 
 	result := calculate(input)
-	fmt.Println("Результат равен:", result) //          Немогу сформулировать логигу выполнения ответа того или инного типа. if  esle <=0,  Идёт работа над кейсом Ответ.
+	fmt.Println("Результат равен:", result)
 
 	num := result
 	roman := decimalToRomanIterative(num)
 	fmt.Printf("Римскими результат равен: %s\n", roman)
 
+	if result <= 0 {
+		fmt.Println("Паника, Римский ответ не может быть 0 или меньше 0")
+
+	}
 }
 
 func calculate(input string) int {
@@ -64,8 +68,8 @@ func convertToNumber(str string) (int, bool) {
 		return num, false
 	}
 
-	num := 0           // возникновение проблем с интеграцией паники через convertToNumber.. что то делаю не так, было решенно пропустить ответ через
-	for len(str) > 0 { //decimalToRomanIterative
+	num := 0
+	for len(str) > 0 {
 		for key, value := range ARARIM {
 			if strings.HasPrefix(str, key) {
 				num += value
@@ -94,8 +98,9 @@ func decimalToRomanIterative(num int) string {
 		for num >= pair.decVal {
 			result += pair.symbol
 			num -= pair.decVal
-		} //if num <0 {panic("Ответ не коректен")} Вновь непойму. Углубляюсь в Условные конструкции нехватает знаний
+		}
 	}
 	return result
 }
+
 
