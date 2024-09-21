@@ -7,21 +7,44 @@ import (
 )
 
 func main() {
-	var input string
-	fmt.Print("Вод : ")
-	fmt.Scanln(&input)
-
-	result := calculate(input)
-	fmt.Println("Результат равен:", result)
-
-	num := result
-	roman := decimalToRomanIterative(num)
-	fmt.Printf("Римскими результат равен: %s\n", roman)
-
-	if result <= 0 {
-		fmt.Println("Паника, Римский ответ не может быть 0 или меньше 0")
+	var AR string
+	fmt.Print("В какой системе исчисление вы хотите произвести операцию: Арабская или Риская (A|R): ")
+	fmt.Scanln(&AR)
+	tip := AR
+	A := "Вы выбрали систему исчесления - Арабская:"
+	R := "Вы выбрали систему исчесления - Римская:"
+	if tip == "A" {
+		fmt.Println(A)
+		var input string
+		fmt.Println("Вы можете записать вырожение как АРАБСКИМИ, так и РИМСКИМИ числами")
+		fmt.Println("╔═══════════════════════════════════════════════════════════════════════╗\n║\t.( ͡ ಠ ʖ̯ ͡ಠ).\t\t\t\t\t\t\t   ║\n║\t\t☛\t\t\t\t\t\t\t║\n║РЕЗУЛЬТАТ БУДЕТ ОТОБРАЖЕН В ВЫБРАНОЙ СИСТИЕМЕ ИСЧИСЛЕНИЯ\t\t║")
+		fmt.Println("╚═══════════════════════════════════════════════════════════════════════╝")
+		fmt.Print("Ввод :")
+		fmt.Scanln(&input)
+		result := calculate(input)
+		fmt.Println("Результат равен:", result)
 
 	}
+
+	if AR == "R" {
+		fmt.Println(R)
+		var input string
+		fmt.Println("Вы можете записать вырожение как АРАБСКИМИ, так и РИМСКИМИ числами")
+		fmt.Println("╔═══════════════════════════════════════════════════════════════════════╗\n║\t.( ͡ ಠ ʖ̯ ͡ಠ).\t\t\t\t\t\t\t   ║\n║\t\t☛\t\t\t\t\t\t\t║\n║РЕЗУЛЬТАТ БУДЕТ ОТОБРАЖЕН В ВЫБРАНОЙ СИСТИЕМЕ ИСЧИСЛЕНИЯ\t\t║")
+		fmt.Println("╚═══════════════════════════════════════════════════════════════════════╝")
+		fmt.Print("Ввод :")
+		fmt.Scanln(&input)
+		result := calculate(input)
+		num := result
+		roman := decimalToRomanIterative(num)
+		fmt.Printf("Результат равен: %s\n", roman)
+		if result <= 0 {
+			fmt.Println("Паника, ответ в Римской системе исчисления не может быть равен 0 или отрицательному значению")
+
+		}
+
+	}
+
 }
 
 func calculate(input string) int {
@@ -39,7 +62,7 @@ func calculate(input string) int {
 	num2, isRoman2 := convertToNumber(expression[1])
 
 	if isRoman1 != isRoman2 {
-		fmt.Println("Паника, так как используются одновременно разные системы счисления.")
+		fmt.Println("Паника! В выражении используются переменные из разных систем исчисления.")
 		return 0
 	}
 
@@ -102,5 +125,6 @@ func decimalToRomanIterative(num int) string {
 	}
 	return result
 }
+
 
 
