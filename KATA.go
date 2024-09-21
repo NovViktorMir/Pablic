@@ -10,9 +10,11 @@ func main() {
 	var AR string
 	fmt.Print("В какой системе исчисление вы хотите произвести операцию: Арабская или Риская (A|R): ")
 	fmt.Scanln(&AR)
+
 	tip := AR
 	A := "Вы выбрали систему исчесления - Арабская:"
 	R := "Вы выбрали систему исчесления - Римская:"
+
 	if tip == "A" {
 		fmt.Println(A)
 		var input string
@@ -21,6 +23,12 @@ func main() {
 		fmt.Println("╚═══════════════════════════════════════════════════════════════════════╝")
 		fmt.Print("Ввод :")
 		fmt.Scanln(&input)
+		dool := len(input)
+		if dool > 3 {
+			fmt.Println("ВНИМАНИЕ Вы велли неверный формат вырожения, после ввода значений Число&Число :  остальное было удаленно ")
+			fmt.Println("ОТОБРОЖОН КОРРЕКТНЫЙ РЕЗУЛЬТАТ")
+		}
+
 		result := calculate(input)
 		fmt.Println("Результат равен:", result)
 
@@ -34,6 +42,11 @@ func main() {
 		fmt.Println("╚═══════════════════════════════════════════════════════════════════════╝")
 		fmt.Print("Ввод :")
 		fmt.Scanln(&input)
+		dool := len(input)
+		if dool > 3 {
+			fmt.Println("ВНИМАНИЕ Вы велли неверный формат вырожения, после ввода значений Число&Число :  остальное было удаленно ")
+			fmt.Println("ОТОБРОЖОН КОРРЕКТНЫЙ РЕЗУЛЬТАТ")
+		}
 		result := calculate(input)
 		num := result
 		roman := decimalToRomanIterative(num)
@@ -125,6 +138,5 @@ func decimalToRomanIterative(num int) string {
 	}
 	return result
 }
-
 
 
