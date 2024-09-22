@@ -35,7 +35,7 @@ func main() {
 
 	}
 
-	if AR == "R" {
+	if tip == "R" {
 		fmt.Println(R)
 		var input string
 		fmt.Println("Вы можете записать вырожение как АРАБСКИМИ, так и РИМСКИМИ числами")
