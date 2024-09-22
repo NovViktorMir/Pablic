@@ -54,7 +54,7 @@ func main() {
 		roman := decimalToRomanIterative(num)
 		fmt.Printf("Результат равен: %s\n", roman)
 		if result <= 0 {
-			fmt.Println("Паника, ответ в Римской системе исчисления не может быть равен 0 или отрицательному значению")
+			fmt.Println("Паника, ответ в Римской системе исчисления не может быть равен 0 или отрицательному значению:")
 
 		}
 
@@ -77,7 +77,8 @@ func calculate(input string) int {
 	num2, isRoman2 := convertToNumber(expression[1])
 
 	if isRoman1 != isRoman2 {
-		fmt.Println("Паника! В выражении используются переменные из разных систем исчисления.")
+		fmt.Println("╔════════════════════════════════════════════════════════════════════════╗\n║\t ┐(￣ヘ￣)┌\t\t\t\t\t\t\t ║\n║\t           \t\t\t\t\t\t\t ║\n║Паника! В выражении используются переменные из разных систем исчисления.║")
+		fmt.Println("╚════════════════════════════════════════════════════════════════════════╝")
 		return 0
 	}
 
@@ -140,5 +141,4 @@ func decimalToRomanIterative(num int) string {
 	}
 	return result
 }
-
 
