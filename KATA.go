@@ -44,7 +44,7 @@ func main() {
 
 			if dool > 5 {
 				err()
-				defer panic("ERROR: The calculator only works with two variables : \n The session is over")
+				defer panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers:\n The session is over")
 			} else if dool < 2 {
 				eer()
 				defer panic("ERROR: The calculator only works with two variables : \n The session is over")
@@ -151,7 +151,7 @@ func main() {
 
 				if dool > 5 {
 					err()
-					defer panic("ERROR: The calculator only works with two variables : \n The session is over")
+					defer panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers: \n The session is over")
 				} else if dool < 2 {
 					eer()
 					defer panic("ERROR: The calculator only works with two variables : \n The session is over")
@@ -404,13 +404,13 @@ func ups() {
 
 func hello() {
 	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗")
-	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0022               ║")
+	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0023               ║")
 	fmt.Println("║Данный калькулятор принимает символы из разных систем счисления:                                                                                                                    ║")
 	fmt.Println("║Такие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.                                                                                                                      ║")
 	fmt.Println("║Вы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.                                                                         ║")
 	fmt.Println("║Для этого введите команду в какой системе вы хотите получить результат:                                                                                                             ║")
 	fmt.Println("║Результат:(введите одно из значений) A|R|G|IA|EI                                                                                                                                    ║")
 	fmt.Println("║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║")
-	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0022 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
+	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0023 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
