@@ -210,7 +210,7 @@ func calculate(input string) int {
 			break
 		}
 	}
-	nouoperators := "@#$^&=!№;:?*`"
+	nouoperators := "@#$^&=!№;:?`"
 	var nouoperator string
 	for _, ti := range nouoperators {
 		if strings.Contains(input, string(ti)) {
