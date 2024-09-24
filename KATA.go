@@ -142,10 +142,12 @@ func main() {
 		sol := ven
 		switch sol {
 		case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
-			if dool > 3 {
-				err()
-
-			}
+			if dool < 2 {
+			eer()
+		}
+		if dool >= 5 {
+			err()
+		}
 			result := calculate(input)
 			fmt.Println("Результат равен:", result)
 		case 73, 88, 86:
@@ -160,12 +162,6 @@ func main() {
 
 		}
 
-		if dool < 2 {
-			eer()
-		}
-		if dool >= 5 {
-			err()
-		}
 
 	}
 	if tip == "ALL" {
