@@ -30,6 +30,7 @@ func main() {
 	default:
 		fmt.Println("Команда введена не корректно:Список команд представлен выше:")
 		fmt.Println("Внимательней читайте условие выполнение программы!")
+		panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 	}
 
@@ -388,5 +389,6 @@ func ups() {
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════╝")
 
 }
+
 
 
