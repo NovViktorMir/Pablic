@@ -30,7 +30,7 @@ func main() {
 	default:
 		fmt.Println("Команда введена не корректно:Список команд представлен выше:")
 		fmt.Println("Внимательней читайте условие выполнение программы!")
-		panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+		panic("Mistake: :The calculator only works with two variables \n The session is over")
 
 	}
 	switch tip {
@@ -44,6 +44,7 @@ func main() {
 
 			if dool > 3 {
 				err()
+				defer panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 			} else if dool < 2 {
 				eer()
 			}
@@ -148,9 +149,9 @@ func main() {
 			case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
 				if dool < 2 {
 					eer()
-				}
-				if dool >= 5 {
+				} else if dool > 5 {
 					err()
+					defer panic("Mistake:The calculator only works with two variables: \n The session is over")
 				}
 				result := calculate(input)
 				fmt.Println("Результат равен:", result)
@@ -374,7 +375,6 @@ func decimalToEivrIterative(num int) string {
 	return result
 }
 func err() {
-	fmt.Println("ВНИМАНИЕ Вы ввели неверный формат выражения, после ввода значений Число&Число, остальное было удаленно ")
 	fmt.Println("╔═══════════════════════════════════════════════════════════════════════╗")
 	fmt.Println("║.((╬X   X))                                                            ║")
 	fmt.Println("║      A                                                                ║")
@@ -401,14 +401,14 @@ func ups() {
 
 func hello() {
 	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗")
-	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0018               ║")
+	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0019               ║")
 	fmt.Println("║Данный калькулятор принимает символы из разных систем счисления:                                                                                                                    ║")
 	fmt.Println("║Такие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.                                                                                                                      ║")
 	fmt.Println("║Вы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.                                                                         ║")
 	fmt.Println("║Для этого введите команду в какой системе вы хотите получить результат:                                                                                                             ║")
 	fmt.Println("║Результат:(введите одно из значений) A|R|G|IA|EI                                                                                                                                    ║")
 	fmt.Println("║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║")
-	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0018 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
+	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0019 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
 
