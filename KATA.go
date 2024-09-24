@@ -36,7 +36,7 @@ func main() {
 		}
 		zero := input[0]
 		if zero == 48 {
-			fmt.Println("000")
+			fmt.Println("Вы ввели 0 первым значением: (╬￣皿￣) ")
 		}
 
 		result := calculate(input)
