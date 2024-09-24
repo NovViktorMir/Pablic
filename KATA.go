@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗\n║.( ͡ ಠ ʖ̯ ͡ಠ). version : 0.0012 \t\t\t\tДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!\t\t\t\t\t\t\t\t\t\t\t\t║\n║\t\t\tДанный калькулятор принимает символы из разных систем счисления:\t\t\t\t\t\t\t\t\t\t\t     ║\n║\t\t\t\tТакие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.\t\t\t\t\t\t\t\t\t\t             ║\n║\t\tВы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.\t\t\t\t\t\t\t     ║\n║\t\t\tДля этого введите команду в какой системе вы хотите получить результат:\t\t\t\t\t\t\t\t\t\t\t     ║\n║\t\t\t\tРезультат:(введите одно из значений) A|R|G|IA|EI\t\t\t\t\t\t\t\t\t\t\t\t     ║\n║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║\n║\t\t\t\t   ВНИМАНИЕ: режим AVTO: version : 0.0012 : работает только с Римскими и Арабскими выражениями.\t\t\t\t\t\t\t     ║")
+	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗\n║.( ͡ ಠ ʖ̯ ͡ಠ). version : 0.0013 \t\t\t\tДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!\t\t\t\t\t\t\t\t\t\t\t\t║\n║\t\t\tДанный калькулятор принимает символы из разных систем счисления:\t\t\t\t\t\t\t\t\t\t\t     ║\n║\t\t\t\tТакие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.\t\t\t\t\t\t\t\t\t\t             ║\n║\t\tВы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.\t\t\t\t\t\t\t     ║\n║\t\t\tДля этого введите команду в какой системе вы хотите получить результат:\t\t\t\t\t\t\t\t\t\t\t     ║\n║\t\t\t\tРезультат:(введите одно из значений) A|R|G|IA|EI\t\t\t\t\t\t\t\t\t\t\t\t     ║\n║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║\n║\t\t\t\t   ВНИМАНИЕ: режим AVTO: version : 0.0013 : работает только с Римскими и Арабскими выражениями.\t\t\t\t\t\t\t     ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 	var sempai string
 	fmt.Print("Результат операции:  ")
@@ -34,6 +34,10 @@ func main() {
 		if dool < 2 {
 			eer()
 		}
+		zero := input[0]
+		if zero == 48 {
+			fmt.Println("000")
+		}
 
 		result := calculate(input)
 		fmt.Println("Результат равен:", result)
@@ -54,8 +58,8 @@ func main() {
 		roman := decimalToRomanIterative(num)
 		fmt.Printf("Римский результат равен: %s\n", roman)
 		if result <= 0 {
-			fmt.Println("Паника, ответ в Римской системе счисления не может быть равен 0 или отрицательному значению:")
-
+			fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
+			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 		}
 
 	}
@@ -73,8 +77,8 @@ func main() {
 		gresh := decimalToGreshIterative(num)
 		fmt.Printf("Греческий результат равен: %s\n", gresh)
 		if result <= 0 {
-			fmt.Println("Паника, ответ в Греческой системе счисления не может быть равен 0 или отрицательному значению:")
-
+			fmt.Println("Греческой системе счисления не может быть равен 0 или отрицательному значению:")
+			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 		}
 
 	}
@@ -92,7 +96,8 @@ func main() {
 		Iarab := decimalToIarabIterative(num)
 		fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
 		if result <= 0 {
-			fmt.Println("Паника, ответ в Индо-арабской системе счисления не может быть равен 0 или отрицательному значению:")
+			fmt.Println("Индо-арабской системе счисления не может быть равен 0 или отрицательному значению:")
+			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 		}
 
@@ -111,7 +116,8 @@ func main() {
 		eivr := decimalToEivrIterative(num)
 		fmt.Printf("Результат на Иврите равен: %s\n", eivr)
 		if result <= 0 {
-			fmt.Println("Паника, ответ в Еврейской системе счисления не может быть равен 0 или отрицательному значению:")
+			fmt.Println("Еврейской системе счисления не может быть равен 0 или отрицательному значению:")
+			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 		}
 
@@ -123,11 +129,13 @@ func main() {
 		fmt.Scanln(&input)
 		dool := len(input)
 		ven := input[0]
+
 		sol := ven
 		switch sol {
 		case 49, 50, 51, 52, 53, 54, 55, 56, 57:
 			if dool > 3 {
 				err()
+
 			}
 			result := calculate(input)
 			fmt.Println("Результат равен:", result)
@@ -137,8 +145,8 @@ func main() {
 			roman := decimalToRomanIterative(num)
 			fmt.Printf("Результат равен: %s\n", roman)
 			if result <= 0 {
-				fmt.Println("Паника, ответ в Римской системе счисления не может быть равен 0 или отрицательному значению:")
-
+				fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
+				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 			}
 
 		}
@@ -186,10 +194,17 @@ func calculate(input string) int {
 	expression := strings.Split(input, operator)
 	num1, isRoman1 := convertToNumber(expression[0])
 	num2, isRoman2 := convertToNumber(expression[1])
+	if num1 == 0 {
+		panic("Division by zero!")
+	}
+	if num2 == 0 {
+		panic("Division by zero!")
+
+	}
 
 	if isRoman1 != isRoman2 {
 		ups()
-		return 0
+		panic("The expression is not executed...\n The session is over.")
 	}
 
 	var Ровно int
@@ -352,6 +367,7 @@ func eer() {
 func ups() {
 	fmt.Println("╔════════════════════════════════════════════════════════════════════════╗\n║\t ┐(￣ヘ￣)┌\t\t\t\t\t\t\t ║\n║\t           \t\t\t\t\t\t\t ║\n║Паника! В выражении используются переменные из разных систем счисления. ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════╝")
+
 }
 
 
