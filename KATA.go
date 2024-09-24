@@ -159,6 +159,9 @@ func main() {
 		if dool < 2 {
 			eer()
 		}
+		if dool >= 5 {
+			err()
+		}
 
 	}
 	if tip == "ALL" {
