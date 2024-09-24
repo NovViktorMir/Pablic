@@ -33,158 +33,164 @@ func main() {
 		panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 	}
+	switch tip {
+	case "A":
+		if tip == "A" {
+			fmt.Println(A)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
 
-	if tip == "A" {
-		fmt.Println(A)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
+			if dool > 3 {
+				err()
+			} else if dool < 2 {
+				eer()
+			}
 
-		if dool > 3 {
-			err()
-		} else if dool < 2 {
-			eer()
-		}
-
-		result := calculate(input)
-		fmt.Println("Результат равен:", result)
-
-	}
-
-	if tip == "R" {
-		fmt.Println(R)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		if dool < 2 {
-			eer()
-		}
-		result := calculate(input)
-		num := result
-		roman := decimalToRomanIterative(num)
-		fmt.Printf("Римский результат равен: %s\n", roman)
-		if result <= 0 {
-			fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
-			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
-		}
-
-	}
-	if tip == "G" {
-		fmt.Println(G)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		if dool < 2 {
-			eer()
-		}
-		result := calculate(input)
-		num := result
-		gresh := decimalToGreshIterative(num)
-		fmt.Printf("Греческий результат равен: %s\n", gresh)
-		if result <= 0 {
-			fmt.Println("Греческой системе счисления не может быть равен 0 или отрицательному значению:")
-			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
-		}
-
-	}
-	if tip == "IA" {
-		fmt.Println(IA)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		if dool < 2 {
-			eer()
-		}
-		result := calculate(input)
-		num := result
-		Iarab := decimalToIarabIterative(num)
-		fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
-		if result <= 0 {
-			fmt.Println("Индо-арабской системе счисления не может быть равен 0 или отрицательному значению:")
-			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+			result := calculate(input)
+			fmt.Println("Результат равен:", result)
 
 		}
-
-	}
-	if tip == "EI" {
-		fmt.Println(EI)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		if dool < 2 {
-			eer()
-		}
-		result := calculate(input)
-		num := result
-		eivr := decimalToEivrIterative(num)
-		fmt.Printf("Результат на Иврите равен: %s\n", eivr)
-		if result <= 0 {
-			fmt.Println("Еврейской системе счисления не может быть равен 0 или отрицательному значению:")
-			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
-
-		}
-
-	}
-	if tip == "AVTO" {
-		fmt.Println(AVTO)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		ven := input[0]
-
-		sol := ven
-		switch sol {
-		case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+	case "R":
+		if tip == "R" {
+			fmt.Println(R)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
 			if dool < 2 {
 				eer()
 			}
-			if dool >= 5 {
-				err()
-			}
-			result := calculate(input)
-			fmt.Println("Результат равен:", result)
-		case 73, 88, 86:
 			result := calculate(input)
 			num := result
 			roman := decimalToRomanIterative(num)
-			fmt.Printf("Результат равен: %s\n", roman)
+			fmt.Printf("Римский результат равен: %s\n", roman)
 			if result <= 0 {
 				fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
 				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 			}
 
 		}
+	case "G":
+		if tip == "G" {
+			fmt.Println(G)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
+			if dool < 2 {
+				eer()
+			}
+			result := calculate(input)
+			num := result
+			gresh := decimalToGreshIterative(num)
+			fmt.Printf("Греческий результат равен: %s\n", gresh)
+			if result <= 0 {
+				fmt.Println("Греческой системе счисления не может быть равен 0 или отрицательному значению:")
+				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+			}
 
-	}
-	if tip == "ALL" {
-		fmt.Println(ALL)
-		var input string
-		fmt.Print("Ввод :")
-		fmt.Scanln(&input)
-		dool := len(input)
-		if dool < 1 {
-			eer()
 		}
-		result := calculate(input)
-		num := result
-		roman := decimalToRomanIterative(num)
-		gresh := decimalToGreshIterative(num)
-		Iarab := decimalToIarabIterative(num)
-		eivr := decimalToEivrIterative(num)
-		fmt.Println("Арабский результат равен:", result)
-		fmt.Printf("Римский результат равен: %s\n", roman)
-		fmt.Printf("Греческий результат равен: %s\n", gresh)
-		fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
-		fmt.Printf("Еврейский результат равен: %s\n", eivr)
+	case "IA":
+		if tip == "IA" {
+			fmt.Println(IA)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
+			if dool < 2 {
+				eer()
+			}
+			result := calculate(input)
+			num := result
+			Iarab := decimalToIarabIterative(num)
+			fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
+			if result <= 0 {
+				fmt.Println("Индо-арабской системе счисления не может быть равен 0 или отрицательному значению:")
+				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
+			}
+
+		}
+	case "EI":
+		if tip == "EI" {
+			fmt.Println(EI)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
+			if dool < 2 {
+				eer()
+			}
+			result := calculate(input)
+			num := result
+			eivr := decimalToEivrIterative(num)
+			fmt.Printf("Результат на Иврите равен: %s\n", eivr)
+			if result <= 0 {
+				fmt.Println("Еврейской системе счисления не может быть равен 0 или отрицательному значению:")
+				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+
+			}
+
+		}
+	case "AVTO":
+		if tip == "AVTO" {
+			fmt.Println(AVTO)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
+			ven := input[0]
+
+			sol := ven
+			switch sol {
+			case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+				if dool < 2 {
+					eer()
+				}
+				if dool >= 5 {
+					err()
+				}
+				result := calculate(input)
+				fmt.Println("Результат равен:", result)
+			case 73, 88, 86:
+				result := calculate(input)
+				num := result
+				roman := decimalToRomanIterative(num)
+				fmt.Printf("Результат равен: %s\n", roman)
+				if result <= 0 {
+					fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
+					panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+				}
+
+			}
+
+		}
+	case "ALL":
+		if tip == "ALL" {
+			fmt.Println(ALL)
+			var input string
+			fmt.Print("Ввод :")
+			fmt.Scanln(&input)
+			dool := len(input)
+			if dool < 1 {
+				eer()
+			}
+			result := calculate(input)
+			num := result
+			roman := decimalToRomanIterative(num)
+			gresh := decimalToGreshIterative(num)
+			Iarab := decimalToIarabIterative(num)
+			eivr := decimalToEivrIterative(num)
+			fmt.Println("Арабский результат равен:", result)
+			fmt.Printf("Римский результат равен: %s\n", roman)
+			fmt.Printf("Греческий результат равен: %s\n", gresh)
+			fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
+			fmt.Printf("Еврейский результат равен: %s\n", eivr)
+
+		}
 	}
-
 }
 
 func calculate(input string) int {
@@ -395,15 +401,14 @@ func ups() {
 
 func hello() {
 	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗")
-	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0017               ║")
+	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0018               ║")
 	fmt.Println("║Данный калькулятор принимает символы из разных систем счисления:                                                                                                                    ║")
 	fmt.Println("║Такие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.                                                                                                                      ║")
 	fmt.Println("║Вы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.                                                                         ║")
 	fmt.Println("║Для этого введите команду в какой системе вы хотите получить результат:                                                                                                             ║")
 	fmt.Println("║Результат:(введите одно из значений) A|R|G|IA|EI                                                                                                                                    ║")
 	fmt.Println("║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║")
-	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0017 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
+	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0018 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
-
 
