@@ -129,6 +129,11 @@ func main() {
 		fmt.Scanln(&input)
 		dool := len(input)
 		ven := input[0]
+		zero := input[0]
+		if zero == 48 {
+			fmt.Println("Вы ввели 0 первым значением: (╬￣皿￣) ")
+			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
+		}
 
 		sol := ven
 		switch sol {
