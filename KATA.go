@@ -210,7 +210,7 @@ func calculate(input string) int {
 			break
 		}
 	}
-	nouoperators := "@#$^&*=!№;:?*`"
+	nouoperators := "@#$^&=!№;:?*`"
 	var nouoperator string
 	for _, ti := range nouoperators {
 		if strings.Contains(input, string(ti)) {
@@ -219,7 +219,7 @@ func calculate(input string) int {
 		}
 	}
 	switch nouoperator {
-	case "@", "#", "$", "^", "&", "*", "=", "!", "№", ";", ":", "?", "`":
+	case "@", "#", "$", "^", "&", "=", "!", "№", ";", ":", "?", "`":
 		fmt.Println("Вырожение веденно не верно: используйте операторы +|-|*|/ ")
 		panic("The expression is not executed...\n The session is over.")
 	}
@@ -404,6 +404,7 @@ func ups() {
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════╝")
 
 }
+
 
 
 
