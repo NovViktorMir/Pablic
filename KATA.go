@@ -8,6 +8,7 @@ import (
 
 func main() {
 	hello()
+
 	var sempai string
 	fmt.Print("Результат операции:  ")
 	fmt.Scanln(&sempai)
@@ -46,8 +47,12 @@ func main() {
 			eer()
 		}
 		zero := input[0]
+		zerooit := input[3]
 		if zero == 48 {
 			fmt.Println("Вы ввели 0 первым значением: (╬￣皿￣) ")
+		}
+		if zerooit == 48 {
+			fmt.Println("Вы ввели 0 третим значением: (╬￣皿￣) ")
 		}
 
 		result := calculate(input)
@@ -140,15 +145,10 @@ func main() {
 		fmt.Scanln(&input)
 		dool := len(input)
 		ven := input[0]
-		zero := input[0]
-		if zero == 48 {
-			fmt.Println("Вы ввели 0 первым значением: (╬￣皿￣) ")
-			panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
-		}
 
 		sol := ven
 		switch sol {
-		case 49, 50, 51, 52, 53, 54, 55, 56, 57:
+		case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
 			if dool > 3 {
 				err()
 
@@ -226,13 +226,6 @@ func calculate(input string) int {
 	expression := strings.Split(input, operator)
 	num1, isRoman1 := convertToNumber(expression[0])
 	num2, isRoman2 := convertToNumber(expression[1])
-	if num1 == 0 {
-		panic("Division by zero!")
-	}
-	if num2 == 0 {
-		panic("Division by zero!")
-
-	}
 
 	if isRoman1 != isRoman2 {
 		ups()
@@ -257,7 +250,7 @@ func calculate(input string) int {
 }
 
 func convertToNumber(str string) (int, bool) {
-	ARARIM := map[string]int{"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9, "X": 10}
+	ARARIM := map[string]int{"0": 0, "I": 1, "II": 2, "III": 3, "IV": 4, "V": 5, "VI": 6, "VII": 7, "VIII": 8, "IX": 9, "X": 10}
 	GRESH := map[string]int{"α": 1, "β": 2, "γ": 3, "δ": 4, "ε": 5, "ϝ": 6, "ζ": 7, "η": 8, "θ": 9, "ι": 10}
 	IARAB := map[string]int{"١": 1, "٢": 2, "٣": 3, "٤": 4, "٥": 5, "٦": 6, "٧": 7, "٨": 8, "٩": 9, "١٠": 10}
 	EIVR := map[string]int{"א": 1, "ב": 2, "ג": 3, "ד": 4, "ה": 5, "ו": 6, "ז": 7, "ח": 8, "ט": 9, "י": 10}
@@ -416,7 +409,6 @@ func hello() {
 	fmt.Println("║\t\t\t\t   ВНИМАНИЕ: режим AVTO: version : 0.0015 : работает только с Римскими и Арабскими выражениями.\t\t\t\t\t\t\t     ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
-
 
 
 
