@@ -228,15 +228,6 @@ func calculate(input string) int {
 		ups()
 		panic("The expression is not executed...\n The session is over.")
 	}
-	if num2 != 0 {
-		result := num1 / num2
-		return result
-	} else {
-		eer()
-		fmt.Println("На ноль делить нельзя!")
-		defer panic("ERROR:Division by zero!: \n The session is over")
-
-	}
 
 	var Ровно int
 	switch operator {
@@ -424,5 +415,4 @@ func hello() {
 	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0028 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
-
 
