@@ -68,7 +68,7 @@ func main() {
 			roman := decimalToRomanIterative(num)
 			fmt.Printf("Римский результат равен: %s\n", roman)
 			if result <= 0 {
-				fmt.Println("Римской системе счисления не может быть равен 0 или отрицательному значению:")
+				fmt.Println("Римской системе счисления не может быть Результат: 0 или отрицательное значение:")
 				panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 			}
 
