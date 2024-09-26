@@ -32,6 +32,7 @@ func main() {
 		panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 	}
+
 	switch tip {
 	case "A":
 		if tip == "A" {
@@ -135,41 +136,47 @@ func main() {
 			}
 
 		}
+
 	case "AVTO":
+
 		if tip == "AVTO" {
 			fmt.Println(AVTO)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-			ven := input[0]
+			for i := 0; i < 10; i++ {
+				var input string
+				fmt.Print("Ввод :")
+				fmt.Scanln(&input)
+				dool := len(input)
+				ven := input[0]
+				sol := ven
+				switch sol {
+				case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+					if dool > 5 {
+						result := calculate(input)
+						fmt.Println("Результат равен:", result)
+						err()
+						panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers: \n The session is over")
+					} else if dool < 2 {
+						eer()
+						panic("ERROR: The calculator only works with two variables : \n The session is over")
+					}
+					result := calculate(input)
+					fmt.Println("Результат равен:", result)
+				case 73, 88, 86:
+					result := calculate(input)
+					num := result
+					roman := decimalToRomanIterative(num)
+					fmt.Printf("Результат равен: %s\n", roman)
+					if result <= 0 {
+						fmt.Println("Римской системе счисления не может быть Результат: 0 или отрицательное значение:")
+						panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
-			sol := ven
-			switch sol {
-			case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+					}
 
-				if dool > 5 {
-					err()
-					defer panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers: \n The session is over")
-				} else if dool < 2 {
-					eer()
-					defer panic("ERROR: The calculator only works with two variables : \n The session is over")
-				}
-				result := calculate(input)
-				fmt.Println("Результат равен:", result)
-			case 73, 88, 86:
-				result := calculate(input)
-				num := result
-				roman := decimalToRomanIterative(num)
-				fmt.Printf("Результат равен: %s\n", roman)
-				if result <= 0 {
-					fmt.Println("Римской системе счисления не может быть Результат: 0 или отрицательное значение:")
-					panic("Mistake: you entered a conditionally incorrect expression : \n The session is over")
 				}
 
 			}
-
 		}
+
 	case "ALL":
 		if tip == "ALL" {
 			fmt.Println(ALL)
@@ -206,6 +213,7 @@ func calculate(input string) int {
 			break
 		}
 	}
+
 	nouoperators := "@#$^&=!№;:?`%|"
 	var nouoperator string
 	for _, ti := range nouoperators {
@@ -316,7 +324,7 @@ var romanMap = []struct {
 	symbol string
 }{
 	{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-	{100, "C"}, {90, "XC"}, {50, "L"}, {40, "XL"},
+	{100, "C"}, {90, "XC"}, {80, "LXXX"}, {70, "LXX"}, {60, "LX"}, {50, "L"}, {40, "XL"},
 	{10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"},
 }
 
@@ -415,13 +423,13 @@ func ups() {
 
 func hello() {
 	fmt.Println("╔════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗")
-	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0035               ║")
+	fmt.Println("║                                         ДОБРО ПОЖАЛОВАТЬ В КАЛЬКУЛЯТОР!                                                                   ( ^_^ )   version : 0.0039               ║")
 	fmt.Println("║Данный калькулятор принимает символы из разных систем счисления:                                                                                                                    ║")
 	fmt.Println("║Такие как: Арабские, Римские, Греческие, Индо-арабские, Иврит.                                                                                                                      ║")
 	fmt.Println("║Вы можете использовать выражение в любой системе счисления и получить результат в другой системе счисления.                                                                         ║")
 	fmt.Println("║Для этого введите команду в какой системе вы хотите получить результат:                                                                                                             ║")
 	fmt.Println("║Результат:(введите одно из значений) A|R|G|IA|EI                                                                                                                                    ║")
 	fmt.Println("║Также реализованы команды Результат: ALL||AVTO (вывести результат во всех представленных системах счисления или автоматически определить систему счисления по введенному выражению) ║")
-	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0035 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
+	fmt.Println("║ВНИМАНИЕ: режим AVTO: version : 0.0039 : работает только с Римскими и Арабскими выражениями.                                                                                        ║")
 	fmt.Println("╚════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝")
 }
