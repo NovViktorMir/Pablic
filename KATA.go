@@ -212,7 +212,7 @@ func calculate(input string) int {
 		}
 	}
 
-	nouoperators := "@#$^&=!№;:?`%|"
+	nouoperators := "@#$^&=!№;:?`%|,."
 	var nouoperator string
 	for _, ti := range nouoperators {
 		if strings.Contains(input, string(ti)) {
@@ -221,7 +221,7 @@ func calculate(input string) int {
 		}
 	}
 	switch nouoperator {
-	case "@", "#", "$", "^", "&", "=", "!", "№", ";", ":", "?", "`", "%", "|":
+	case "@", "#", "$", "^", "&", "=", "!", "№", ";", ":", "?", "`", "%", "|", ".", ",":
 		panic("Вырожение веденно не верно: используйте операторы +|-|*|/ \n The expression is not executed...\n The session is over.")
 	}
 
@@ -320,7 +320,9 @@ var romanMap = []struct {
 	symbol string
 }{
 	{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"},
-	{100, "C"}, {90, "XC"}, {80, "LXXX"}, {70, "LXX"}, {60, "LX"}, {50, "L"}, {40, "XL"}, {30, "XXX"}, {20, "XX"}, {19, "XIX"}, {18, "XVIII"}, {17, "XVII"}, {16, "XVI"}, {15, "XV"}, {14, "XIV"}, {13, "XIII"}, {12, "XII"}, {11, "XI"},
+	{100, "C"}, {90, "XC"}, {80, "LXXX"}, {70, "LXX"}, {60, "LX"}, {50, "L"},
+	{40, "XL"}, {30, "XXX"}, {20, "XX"}, {19, "XIX"}, {18, "XVIII"}, {17, "XVII"},
+	{16, "XVI"}, {15, "XV"}, {14, "XIV"}, {13, "XIII"}, {12, "XII"}, {11, "XI"},
 	{10, "X"}, {9, "IX"}, {5, "V"}, {4, "IV"}, {1, "I"},
 }
 
