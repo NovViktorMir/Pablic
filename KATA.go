@@ -7,172 +7,174 @@ import (
 )
 
 func main() {
-	hello()
+	/*	hello()
 
-	var sempai string
-	fmt.Print("Результат операции:  ")
-	fmt.Scanln(&sempai)
-	tip := sempai
-	sow := tip
+		var sempai string
+		fmt.Print("Результат операции:  ")
+		fmt.Scanln(&sempai)
+		tip := sempai
+		sow := tip
 
-	A := "Вы выбрали систему счесления - Арабская:"
-	R := "Вы выбрали систему счесления - Римская:"
-	G := "Вы выбрали систему счесления - Греческая:"
-	IA := "Вы выбрали систему счесления - Индо-арабская:"
-	EI := "Вы выбрали систему счесления - Иврит:"
-	ALL := "Вы выбрали все РЕЗУЛЬТАТЫ:"
-	AVTO := "Автоматически определить результат по вводу:"
-	switch sow {
-	case "A", "R", "G", "IA", "EI", "ALL", "AVTO":
-		fmt.Println("Команда введена корректно:")
+		A := "Вы выбрали систему счесления - Арабская:"
+		R := "Вы выбрали систему счесления - Римская:"
+		G := "Вы выбрали систему счесления - Греческая:"
+		IA := "Вы выбрали систему счесления - Индо-арабская:"
+		EI := "Вы выбрали систему счесления - Иврит:"
+		ALL := "Вы выбрали все РЕЗУЛЬТАТЫ:"
+		AVTO := "Автоматически определить результат по вводу:"
+		switch sow {
+		case "A", "R", "G", "IA", "EI", "ALL", "AVTO":
+			fmt.Println("Команда введена корректно:")
 
-	default:
-		panic("Команда введена не корректно:Список команд представлен выше: \n Внимательней читайте условие выполнение программы! \n Mistake: you entered a conditionally incorrect expression : \n The session is over")
-	}
-
-	switch tip {
-	case "A":
-		if tip == "A" {
-			fmt.Println(A)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-
-			if dool > 5 {
-				err()
-				defer panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers:\n The session is over")
-			} else if dool < 2 {
-				eer()
-				defer panic("ERROR: The calculator only works with two variables : \n The session is over")
-			}
-
-			result := calculate(input)
-			fmt.Println("Результат равен:", result)
-
-		}
-	case "R":
-		if tip == "R" {
-			fmt.Println(R)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-			if dool < 2 {
-				eer()
-			}
-			result := calculate(input)
-			num := result
-			roman := decimalToRomanIterative(num)
-			fmt.Printf("Римский результат равен: %s\n", roman)
-			if result <= 0 {
-				panic("Римской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
-			}
-
-		}
-	case "G":
-		if tip == "G" {
-			fmt.Println(G)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-			if dool < 2 {
-				eer()
-			}
-			result := calculate(input)
-			num := result
-			gresh := decimalToGreshIterative(num)
-			fmt.Printf("Греческий результат равен: %s\n", gresh)
-			if result <= 0 {
-				panic("Греческой системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
-			}
-
-		}
-	case "IA":
-		if tip == "IA" {
-			fmt.Println(IA)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-			if dool < 2 {
-				eer()
-			}
-			result := calculate(input)
-			num := result
-			Iarab := decimalToIarabIterative(num)
-			fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
-			if result <= 0 {
-				panic("Индо-арабской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
-
-			}
-
-		}
-	case "EI":
-		if tip == "EI" {
-			fmt.Println(EI)
-			var input string
-			fmt.Print("Ввод :")
-			fmt.Scanln(&input)
-			dool := len(input)
-			if dool < 2 {
-				eer()
-			}
-			result := calculate(input)
-			num := result
-			eivr := decimalToEivrIterative(num)
-			fmt.Printf("Результат на Иврите равен: %s\n", eivr)
-			if result <= 0 {
-				panic("Еврейской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
-
-			}
-
+		default:
+			panic("Команда введена не корректно:Список команд представлен выше: \n Внимательней читайте условие выполнение программы! \n Mistake: you entered a conditionally incorrect expression : \n The session is over")
 		}
 
-	case "AVTO":
-
-		if tip == "AVTO" {
-			fmt.Println(AVTO)
-			for i := 0; i < 10; i++ {
-				if i == 9 {
-					defer fmt.Println("Goodbye: we hope you enjoyed it!")
-				}
-
+		switch tip {
+		case "A":
+			if tip == "A" {
+				fmt.Println(A)
 				var input string
 				fmt.Print("Ввод :")
 				fmt.Scanln(&input)
 				dool := len(input)
-				ven := input[0]
-				sol := ven
-				switch sol {
-				case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
-					if dool > 5 {
-						result := calculate(input)
-						fmt.Println("Результат равен:", result)
-						err()
-						panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers: \n The session is over")
-					} else if dool < 2 {
-						eer()
-						panic("ERROR: The calculator only works with two variables : \n The session is over")
-					}
-					result := calculate(input)
-					fmt.Println("Результат равен:", result)
-				case 73, 88, 86:
-					result := calculate(input)
-					num := result
-					roman := decimalToRomanIterative(num)
-					fmt.Printf("Результат равен: %s\n", roman)
-					if result <= 0 {
-						panic("Римской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
-					}
+				if dool > 5 {
+					err()
+					defer panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers:\n The session is over")
+				} else if dool < 2 {
+					eer()
+					defer panic("ERROR: The calculator only works with two variables : \n The session is over")
+				}
+
+				result := calculate(input)
+				fmt.Println("Результат равен:", result)
+
+			}
+		case "R":
+			if tip == "R" {
+				fmt.Println(R)
+				var input string
+				fmt.Print("Ввод :")
+				fmt.Scanln(&input)
+				dool := len(input)
+				if dool < 2 {
+					eer()
+				}
+				result := calculate(input)
+				num := result
+				roman := decimalToRomanIterative(num)
+				fmt.Printf("Римский результат равен: %s\n", roman)
+				if result <= 0 {
+					panic("Римской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
+				}
+
+			}
+		case "G":
+			if tip == "G" {
+				fmt.Println(G)
+				var input string
+				fmt.Print("Ввод :")
+				fmt.Scanln(&input)
+				dool := len(input)
+				if dool < 2 {
+					eer()
+				}
+				result := calculate(input)
+				num := result
+				gresh := decimalToGreshIterative(num)
+				fmt.Printf("Греческий результат равен: %s\n", gresh)
+				if result <= 0 {
+					panic("Греческой системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
+				}
+
+			}
+		case "IA":
+			if tip == "IA" {
+				fmt.Println(IA)
+				var input string
+				fmt.Print("Ввод :")
+				fmt.Scanln(&input)
+				dool := len(input)
+				if dool < 2 {
+					eer()
+				}
+				result := calculate(input)
+				num := result
+				Iarab := decimalToIarabIterative(num)
+				fmt.Printf("Индо-арабский результат равен: %s\n", Iarab)
+				if result <= 0 {
+					panic("Индо-арабской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
 
 				}
 
 			}
+		case "EI":
+			if tip == "EI" {
+				fmt.Println(EI)
+				var input string
+				fmt.Print("Ввод :")
+				fmt.Scanln(&input)
+				dool := len(input)
+				if dool < 2 {
+					eer()
+				}
+				result := calculate(input)
+				num := result
+				eivr := decimalToEivrIterative(num)
+				fmt.Printf("Результат на Иврите равен: %s\n", eivr)
+				if result <= 0 {
+					panic("Еврейской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
+
+				}
+
+			}
+
+		case "AVTO":
+
+			if tip == "AVTO" {
+				fmt.Println(AVTO)
+	*/
+	for i := 0; i < 10; i++ {
+		if i == 9 {
+			defer fmt.Println("Goodbye: we hope you enjoyed it!")
 		}
 
+		var input string
+		fmt.Print("Ввод :")
+		fmt.Scanln(&input)
+		dool := len(input)
+		ven := input[0]
+		sol := ven
+		switch sol {
+		case 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+			if dool > 5 {
+				result := calculate(input)
+				fmt.Println("Результат равен:", result)
+				err()
+				panic("ERROR: The calculator only works with two variables :\n Attention it is allowed to enter two-digit numbers: \n The session is over")
+			} else if dool < 2 {
+				eer()
+				panic("ERROR: The calculator only works with two variables : \n The session is over")
+			}
+			result := calculate(input)
+			fmt.Println("Результат равен:", result)
+		case 73, 88, 86:
+			result := calculate(input)
+			num := result
+			roman := decimalToRomanIterative(num)
+			fmt.Printf("Результат равен: %s\n", roman)
+			if result <= 0 {
+				panic("Римской системе счисления не может быть Результат: 0 или отрицательное значение:\n Mistake: you entered a conditionally incorrect expression : \n The session is over")
+
+			}
+
+		}
+
+	}
+}
+
+/*
 	case "ALL":
 		if tip == "ALL" {
 			fmt.Println(ALL)
@@ -199,7 +201,7 @@ func main() {
 	}
 
 }
-
+*/
 func calculate(input string) int {
 	operators := "+-*/"
 	var operator string
